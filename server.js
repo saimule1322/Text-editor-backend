@@ -54,7 +54,7 @@ app.use(cookieParser());
 app.use(express.json());
 
 const corsOptions = {
-  origin: 'http://localhost:5173', // React app's URL
+  origin: 'https://text-editor-frontend-dusky.vercel.app/', // React app's URL
   credentials: true,              // Allow sending cookies with requests
 };
 

@@ -16,6 +16,7 @@ console.log("request",req.body.email)
     let user = await User.findOne({ email: req.body.email });
     let googleId = user.googleId;
 
+    res.cookie('googleId', googleId, { maxAge: 3600000,secure: false  });
 
       if (user) {
         return res.status(200).json({ googleId });
