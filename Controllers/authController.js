@@ -18,6 +18,7 @@ console.log("request",req.body.email)
 
     res.cookie('googleId', googleId, { maxAge: 3600000,secure: false  });
 
+  
       if (user) {
         return res.status(200).json({ googleId });
       }
