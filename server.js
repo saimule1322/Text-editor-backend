@@ -75,6 +75,15 @@ app.use(passport.session());
 
 app.use('/api', routes);
 
+app.get('/auth/google', googleAuth);
+app.get('/auth/google/callback', googleAuthCallback, (req, res) => {
+  res.cookie('accessToken', req.user.accessToken, { maxAge: 3600000, httpOnly: true });
+  res.cookie('refreshToken', req.user.refreshToken, { maxAge: 3600000, httpOnly: true });
+  res.cookie('googleId', req.user.id, { maxAge: 3600000,secure: false  });
+
+  res.redirect('https://text-editor-frontend-dusky.vercel.app/Editor');
+}); 
+
 app.get('/', (req,res)=>{
   res.send("server is running")
 });
