@@ -72,6 +72,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Routes
+app.get('/', (req,res)=>{
+  res.send("server is running")
+};
+
 app.use('/', routes);
 
 // Database and Server Setup
