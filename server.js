@@ -46,6 +46,11 @@ import connectDB from './Configuration/Database.js';
 import routes from './Routes/Index.js';
 import cors from 'cors'
 
+import {
+  googleAuth,
+  googleAuthCallback,
+} from '../Controllers/authController.js';
+
 dotenv.config();
 const app = express();
 
