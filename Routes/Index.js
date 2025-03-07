@@ -10,14 +10,14 @@ import upload from '../Utils/upload.js';
 
 const router = express.Router();
 
-// router.get('/auth/google', googleAuth);
-// router.get('/auth/google/callback', googleAuthCallback, (req, res) => {
-//   res.cookie('accessToken', req.user.accessToken, { maxAge: 3600000, httpOnly: true });
-//   res.cookie('refreshToken', req.user.refreshToken, { maxAge: 3600000, httpOnly: true });
-//   res.cookie('googleId', req.user.id, { maxAge: 3600000,secure: false  });
+router.get('/google', googleAuth);
+router.get('/google/callback', googleAuthCallback, (req, res) => {
+  res.cookie('accessToken', req.user.accessToken, { maxAge: 3600000, httpOnly: true });
+  res.cookie('refreshToken', req.user.refreshToken, { maxAge: 3600000, httpOnly: true });
+  res.cookie('googleId', req.user.id, { maxAge: 3600000,secure: false  });
 
-//   res.redirect('http://localhost:5173/Editor');
-// }); 
+  res.redirect('https://text-editor-frontend-dusky.vercel.app/Editor');
+}); 
 router.get('/Editor', getProfile);
 router.post('/upload', upload.single('file'), uploadFile);
 router.get('/logout', logout);
